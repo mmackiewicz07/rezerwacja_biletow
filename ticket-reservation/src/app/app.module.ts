@@ -10,10 +10,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { HttpClientModule } from '@angular/common/http';
+import { SeanceModule } from './seance-page/seance-module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,8 +23,10 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     BrowserAnimationsModule,
     SharedModule,
     AppMaterialModule,
-    AppStoreModule,
     CoreModule,
+    AppStoreModule,
+    HttpClientModule,
+    SeanceModule,
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
   ],

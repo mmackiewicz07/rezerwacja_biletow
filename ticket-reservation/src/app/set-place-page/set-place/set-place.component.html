@@ -1,0 +1,18 @@
+<div class="bg-secondary w-100 min-h-100 d-flex align-items-center justify-content-start pt-5 flex-column">
+<form [formGroup]="placesForm">
+    <div class="container d-flex align-content-stretch flex-wrap">
+          <ng-container formArrayName="places" *ngFor="let place of places.controls; let i = index">
+              <button
+                class="seat d-flex align-items-center justify-content-center"
+                [ngClass]="{'bg-success': place?.value?.selected, 'bg-danger default': !place?.value?.isFree, 'bg-dark': place?.value?.isFree && !place?.value?.selected}"
+                (click)="selectPlace(place)">{{i}}
+              </button>
+          </ng-container>
+         </div>
+   </form>
+   <div class="actions d-flex align-items-center justify-content-around pt-5 mt-5">
+      <button mat-icon-button (click)="goBack()"><mat-icon>arrow_back</mat-icon></button>
+      <span>Liczba zaznaczonych: {{countSelected()}}</span>
+      <button mat-raised-button [color]="'primary'" (click)="goTosummary()" [disabled]="countSelected() === '0'">DALEJ</button>
+   </div>
+</div>

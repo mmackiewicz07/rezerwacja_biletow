@@ -1,0 +1,7 @@
+<div class="bg-secondary w-100 d-flex flex-column align-items-center">
+    <ng-container *ngFor="let seance of (seances$ | async)">
+    <div class="pt-5 pb-3">
+    <app-seance-details [seance]="seance" (selectedId)="goToSetPlace($event)"></app-seance-details>
+    </div>
+    </ng-container>
+</div>

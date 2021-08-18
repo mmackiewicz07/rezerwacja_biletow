@@ -1,0 +1,16 @@
+<mat-card class="seance-details d-flex flex-row">
+    <div class="w-30 h-100 logan" [ngClass]="logoHandler(seance?.id)">
+    </div>
+    <div class="w-70 h-100 bg-dark d-flex flex-column">
+        <div class="h-75 w-100 px-3 pt-3">
+            {{seance?.desc}}
+        </div>
+        <div class="h-25 w-100 px-3 pb-1 d-flex flex-row align-items-center justify-content-between">
+            <div>
+            <h4 [ngClass]="{'text-danger': seance?.freeSpots === 0}">Wolne miejsca: {{seance?.freeSpots}}</h4>
+            <star-rating [value]="seance?.star ? seance.star : 0" [totalstars]="5" checkedcolor="red" uncheckedcolor="black" size="24px" [readonly]="true"></star-rating>
+            </div>
+            <button [disabled]="seance?.freeSpots === 0" mat-raised-button (click)="goToPlaceSet(seance?.id)">ZAREZERWUJ MIEJSCA TERAZ</button>
+        </div>
+    </div>
+</mat-card>
